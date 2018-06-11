@@ -13,12 +13,6 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx && \
   chown -R www-data:www-data /var/www/html
-  
-# Install certbot.
-RUN \
-  add-apt-repository -y ppa:certbot/certbot && \
-  apt-get update && \
-  apt-get install -y python-certbot-nginx
 
 # mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
